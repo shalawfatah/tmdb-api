@@ -29,8 +29,8 @@ const exclude_first_movie = first_movie_exclude(movies)
     <Layout>
         <FirstMovie item={movies[0]} />
         <div className='container mx-auto'>
-        <h1 className='my-6 text-4xl font-bold text-gray-600'>Highest Ranked Movies</h1>
-        <div className='flex flex-wrap gap-4 justify-between'>
+        <h1 className='my-6 text-4xl font-bold text-gray-600 text-center lg:text-left'>Highest Ranked Movies</h1>
+        <div className='flex flex-wrap gap-4 justify-center lg:justify-between'>
         {exclude_first_movie?.map(item => {
             return <div key={item.id}>
               <Minimal item={item} />
