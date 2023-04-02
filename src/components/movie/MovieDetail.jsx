@@ -4,8 +4,8 @@ const MovieDetail = ({movie}) => {
   return (
     <div>
         <div
-        style={{backgroundImage: `url(${'https://image.tmdb.org/t/p/original/' + movie?.poster_path})`, backgroundSize: 'cover', backgroundOrigin: 'center', backgroundAttachment: 'fixed'}}
-        className="bg-[#161616] p-4 h-screen text-white flex flex-col justify-end shadow-xl shadow-gray-500"
+        style={{backgroundImage: `url(${'https://image.tmdb.org/t/p/original/' + movie?.poster_path}) `, backgroundSize: 'auto 100vh', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed'}}
+        className="bg-[#161616] p-4 h-screen text-white flex flex-col justify-end shadow-xl shadow-gray-600"
         >
         <div className='bg-gray-900/60 px-4 py-2 rounded'>
         <h1 className='text-2xl font-bold '>Title: {movie.original_title}</h1>
