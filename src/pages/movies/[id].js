@@ -38,8 +38,8 @@ const SingleMovie = () => {
     <Layout>
         <MovieDetail movie={movie} />
         <div className='container mx-auto'>
-        <h1 className='my-6 text-4xl font-bold text-gray-600'>Related Movies</h1>
-        <div className='flex flex-wrap gap-4 justify-between'>
+        <h1 className='my-6 text-4xl font-bold text-gray-600 text-center lg:text-left'>Related Movies</h1>
+        <div className='flex flex-wrap gap-4 justify-center lg:justify-between'>
         {similar?.map(item => {
           return (
             <div key={item.id}>
