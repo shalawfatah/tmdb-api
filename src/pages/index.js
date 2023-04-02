@@ -28,6 +28,14 @@ export default function Home() {
         query: { keyword: search },
     })
   }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      router.push({
+        pathname: '/search',
+        query: { keyword: search },
+    })
+    }
+  };
   return (
     <>
       <Head>
@@ -39,7 +47,7 @@ export default function Home() {
       <Layout>
         <FirstMovie item={movies[0]} />
         <div className='fixed top-16 left-[50%] translate-x-[-50%]'>
-          <input className="border-[1px] border-gray-300 rounded-tl-sm rounded-bl-sm outline-none py-1 px-2" type="text" placeholder="Search for a movie..." value={search} onChange={(e) => setSearch(e.target.value)} />
+          <input onKeyDown={handleKeyDown} className="border-[1px] border-gray-300 rounded-tl-sm rounded-bl-sm outline-none py-1 px-2" type="text" placeholder="Search for a movie..." value={search} onChange={(e) => setSearch(e.target.value)} />
           <button className='bg-black border-[1px] border-gray-300 font-bold py-1 px-2 text-white rounded-tr-sm rounded-br-sm' onClick={searchHandle}>SEARCH</button>
         </div>
         <div className='container mx-auto'>

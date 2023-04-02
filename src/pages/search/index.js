@@ -20,16 +20,24 @@ const Search = () => {
   }, [])
 
   return (
+    <>
+      <Head>
+        <title>Movie API - Search</title>
+        <meta name="description" content="Movie API" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <Layout>
         <div className='container mx-auto'>
         <h1 className='my-6 text-4xl font-bold text-gray-600'>Search Result</h1>
         <div className='flex flex-wrap gap-4 justify-between'>
         {movies?.map(item => {
-            return <Minimal item={item} />
+          return <Minimal item={item} />
         })}
         </div>
         </div>
     </Layout>
+    </>
   )
 }
 
