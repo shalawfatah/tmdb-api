@@ -3,6 +3,7 @@ import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
 import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 const Popular = () => {
   const top_url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`

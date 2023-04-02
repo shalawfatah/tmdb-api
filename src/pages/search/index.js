@@ -1,9 +1,8 @@
 import Layout from '@/components/layout/Layout'
-import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
-import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 const Search = () => {
   const router = useRouter()

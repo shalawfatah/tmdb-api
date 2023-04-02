@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { PICTURE_PREFIX } from '@/lib/URL';
-import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import Minimal from '@/components/movie/Minimal';
 import MovieDetail from '@/components/movie/MovieDetail';
+import Head from 'next/head'
 
 const SingleMovie = () => {
     const router = useRouter()
