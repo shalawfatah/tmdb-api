@@ -4,6 +4,7 @@ import Minimal from '@/components/movie/Minimal'
 import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
+import Placeholder from '@/components/movie/Placeholder'
 
 const Upcoming = () => {
   const top_url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
@@ -36,6 +37,9 @@ const exclude_first_movie = first_movie_exclude(movies)
               <Minimal item={item} />
             </div>
         })}
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
         </div>
         </div>
     </Layout>

@@ -3,6 +3,7 @@ import Minimal from '@/components/movie/Minimal'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
+import Placeholder from '@/components/movie/Placeholder'
 
 const Search = () => {
   const router = useRouter()
@@ -35,6 +36,9 @@ const Search = () => {
             <Minimal item={item} />
             </div>
         })}
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
         </div>
         </div>
     </Layout>

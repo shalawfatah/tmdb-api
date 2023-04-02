@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
+import Placeholder from '@/components/movie/Placeholder'
 import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import { NOW_SHOWING_URL } from '@/lib/URL'
 import Head from 'next/head'
@@ -60,6 +61,9 @@ export default function Home() {
             </div>
           )
         })}
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
         </div>
         </div>
       </Layout>

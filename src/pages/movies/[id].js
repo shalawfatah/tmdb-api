@@ -4,6 +4,7 @@ import Layout from '@/components/layout/Layout';
 import Minimal from '@/components/movie/Minimal';
 import MovieDetail from '@/components/movie/MovieDetail';
 import Head from 'next/head'
+import Placeholder from '@/components/movie/Placeholder';
 
 const SingleMovie = () => {
     const router = useRouter()
@@ -47,6 +48,9 @@ const SingleMovie = () => {
             </div>
             )
           })}
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
         </div>
         </div>
     </Layout>
