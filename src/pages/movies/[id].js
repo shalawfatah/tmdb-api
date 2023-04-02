@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { PICTURE_PREFIX } from '@/lib/URL';
 import Link from 'next/link';
+import Layout from '@/components/layout/Layout';
+import Minimal from '@/components/movie/Minimal';
 
 const SingleMovie = () => {
     const router = useRouter()
@@ -26,7 +28,7 @@ const SingleMovie = () => {
     }, [pid])
 
     return (
-    <div>
+    <Layout>
         <h1>Title: {movie.original_title}</h1>
         <img src={PICTURE_PREFIX + movie.poster_path} alt={movie.original_title} className='w-60' />
         <p>Release Date: {movie.release_date}</p>
@@ -60,17 +62,17 @@ const SingleMovie = () => {
         <p>Tagline: {movie.tagline}</p>
         <p>Rating: {movie.vote_average}</p>
         <p>Number of Ratings{movie.vote_count}</p>
-        <h2>Similar Movies</h2>
-        <div className='flex flex-wrap gap-4'>
+        <div className='container mx-auto'>
+        <h1 className='my-6 text-4xl font-bold text-gray-600'>Latest Releases</h1>
+        <div className='flex flex-wrap gap-4 justify-between'>
         {similar?.map(item => {
-            return <Link href={`${item.id}`}>
-                <h2>{item.title}</h2>
-                <p>{item.vote_average}</p>
-                <img src={PICTURE_PREFIX + item.poster_path} className='w-32' />
-            </Link>
+          return (
+            <Minimal item={item} />
+          )
         })}
         </div>
-    </div>
+        </div>
+    </Layout>
   )
 }
 
