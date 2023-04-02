@@ -16,7 +16,7 @@ const Search = () => {
   }
   useEffect(() => {
     fetcher()
-  }, [])
+  }, [movies])
 
   return (
     <>

@@ -25,7 +25,7 @@ const SingleMovie = () => {
     useEffect(() => {
         fetcher()
         fetchSimilar()
-    }, [pid])
+    }, [pid, movie, similar])
 
     return (
     <>

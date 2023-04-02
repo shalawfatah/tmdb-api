@@ -15,7 +15,7 @@ const Upcoming = () => {
   }
   useEffect(() => {
     fetcher()
-  }, [])
+  }, [movies])
 
 const exclude_first_movie = first_movie_exclude(movies)
   return (
@@ -27,7 +27,7 @@ const exclude_first_movie = first_movie_exclude(movies)
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Layout>
-        {movies.length > 0 && <FirstMovie item={movies[0]} />}
+        <FirstMovie item={movies[0]} />
         <div className='container mx-auto'>
         <h1 className='my-6 text-4xl font-bold text-gray-600'>Highest Ranked Movies</h1>
         <div className='flex flex-wrap gap-4 justify-between'>
