@@ -1,9 +1,9 @@
 import Layout from '@/components/layout/Layout'
 import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
-import { MOVIE_DB_URL, NOW_SHOWING_URL } from '@/lib/URL'
+import { first_movie_exclude } from '@/lib/first_movie_exclude'
+import { NOW_SHOWING_URL } from '@/lib/URL'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -16,9 +16,7 @@ export default function Home() {
   useEffect(() => {
     fetcher()
   }, []) 
-  const first_movie_exclude = movies?.filter((item, index) => {
-    return index !== 0;
-  })
+  const exclude_first_movie = first_movie_exclude(movies)
   return (
     <>
       <Head>
@@ -32,7 +30,7 @@ export default function Home() {
         <div className='container mx-auto'>
         <h1 className='my-6 text-4xl font-bold text-gray-600'>Latest Releases</h1>
         <div className='flex flex-wrap gap-4 justify-between'>
-        {first_movie_exclude?.map(item => {
+        {exclude_first_movie?.map(item => {
           return (
             <Minimal item={item} />
           )

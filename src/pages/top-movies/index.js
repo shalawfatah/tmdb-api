@@ -1,5 +1,7 @@
 import Layout from '@/components/layout/Layout'
+import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
+import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import React, { useEffect, useState } from 'react'
 
 const TopMovies = () => {
@@ -13,11 +15,20 @@ const TopMovies = () => {
     useEffect(() => {
       fetcher()
     }, [])
+
+  const exclude_first_movie = first_movie_exclude(movies)
+
   return (
     <Layout>
-        {movies.map(item => {
+        <FirstMovie item={movies[0]} />
+        <div className='container mx-auto'>
+        <h1 className='my-6 text-4xl font-bold text-gray-600'>Highest Ranked Movies</h1>
+        <div className='flex flex-wrap gap-4 justify-between'>
+        {exclude_first_movie?.map(item => {
             return <Minimal item={item} />
         })}
+        </div>
+        </div>
     </Layout>
   )
 }
