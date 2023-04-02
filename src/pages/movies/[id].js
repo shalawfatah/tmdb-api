@@ -42,7 +42,9 @@ const SingleMovie = () => {
         <div className='flex flex-wrap gap-4 justify-between'>
         {similar?.map(item => {
           return (
-            <Minimal item={item} />
+            <div key={item.id}>
+              <Minimal item={item} />
+            </div>
             )
           })}
         </div>

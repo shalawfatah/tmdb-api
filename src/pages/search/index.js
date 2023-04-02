@@ -31,7 +31,9 @@ const Search = () => {
         <h1 className='my-6 text-4xl font-bold text-gray-600'>Search Result</h1>
         <div className='flex flex-wrap gap-4 justify-between'>
         {movies?.map(item => {
-          return <Minimal item={item} />
+            return <div key={item.id}>
+            <Minimal item={item} />
+            </div>
         })}
         </div>
         </div>

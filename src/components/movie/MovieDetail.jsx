@@ -13,27 +13,27 @@ const MovieDetail = ({movie}) => {
         <p className='my-2'>Overview: {movie.overview}</p>
         <p className='font-bold'>Genres: </p>
         <div className='flex flex-wrap gap-x-2'> 
-            {movie.genres?.map(x => {
-                return <p className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
+            {movie.genres?.map((x, index) => {
+                return <p key={index} className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
             })}
         </div>
         <p className='font-bold'>Runtime: {movie.runtime}</p>
         <p className='text-bold'>Languages: </p>
         <div className='flex flex-wrap gap-x-2'> 
-            {movie.spoken_languages?.map(x => {
-                return <p className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.english_name}</p>
+            {movie.spoken_languages?.map((x, index) => {
+                return <p key={index}  className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.english_name}</p>
             })}
         </div>
         <p className='font-bold'>Production Companies: </p>
         <div className='flex flex-wrap gap-x-2'> 
-            {movie.production_companies?.map(x => {
-                return <p className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
+            {movie.production_companies?.map((x, index) => {
+                return <p key={index}  className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
             })}
         </div>
         <p className='font-bold'>Production Countries: </p>
         <div className='flex flex-wrap gap-x-2'> 
-            {movie.production_countries?.map(x => {
-                return <p className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
+            {movie.production_countries?.map((x, index) => {
+                return <p key={index} className='px-2 font-bold bg-gray-800 text-xs rounded'>{x.name}</p>
             })}
         </div>
         <p>Status: {movie.status}</p>

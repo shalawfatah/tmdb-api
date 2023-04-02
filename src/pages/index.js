@@ -55,7 +55,9 @@ export default function Home() {
         <div className='flex flex-wrap gap-4 justify-between'>
         {exclude_first_movie?.map(item => {
           return (
+            <div key={item.id}>
             <Minimal item={item} />
+            </div>
           )
         })}
         </div>

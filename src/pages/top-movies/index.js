@@ -33,7 +33,9 @@ const TopMovies = () => {
         <h1 className='my-6 text-4xl font-bold text-gray-600'>Highest Ranked Movies</h1>
         <div className='flex flex-wrap gap-4 justify-between'>
         {exclude_first_movie?.map(item => {
-          return <Minimal item={item} />
+            return <div key={item.id}>
+              <Minimal item={item} />
+            </div>
         })}
         </div>
         </div>
