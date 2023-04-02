@@ -4,8 +4,8 @@ import Minimal from '@/components/movie/Minimal'
 import { first_movie_exclude } from '@/lib/first_movie_exclude'
 import React, { useEffect, useState } from 'react'
 
-const Upcoming = () => {
-  const top_url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
+const Popular = () => {
+  const top_url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
   const [movies, setMovies] = useState([])
   const fetcher = async() => {
     const response = await fetch(top_url)
@@ -32,4 +32,4 @@ const exclude_first_movie = first_movie_exclude(movies)
   )
 }
 
-export default Upcoming
+export default Popular
