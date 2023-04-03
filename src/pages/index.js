@@ -1,16 +1,19 @@
+import Btn from '@/components/general/Btn'
 import Layout from '@/components/layout/Layout'
 import FirstMovie from '@/components/movie/FirstMovie'
 import Minimal from '@/components/movie/Minimal'
 import Placeholder from '@/components/movie/Placeholder'
 import { first_movie_exclude } from '@/lib/first_movie_exclude'
-import { NOW_SHOWING_URL } from '@/lib/URL'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
+
 export default function Home() {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState('')
+  const [page, setPage] = useState(1)
+  const NOW_SHOWING_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=${page}`
   const fetcher = async() => {
     const response = await fetch(NOW_SHOWING_URL)
     const result = await response.json()
@@ -18,10 +21,13 @@ export default function Home() {
   }
   useEffect(() => {
     fetcher()
-  }, [movies]) 
+  }, [movies, page]) 
   const exclude_first_movie = first_movie_exclude(movies)
 
   const router = useRouter()
+
+  const increment_page = () => setPage(prev => prev + 1);
+  const decrement_page = () => page > 1 && setPage(prev => prev - 1);
 
   const searchHandle = () => {
     router.push({
@@ -62,9 +68,12 @@ export default function Home() {
           )
         })}
         <Placeholder />
-        <Placeholder />
-        <Placeholder />
         </div>
+        </div>
+        <div className='container flex justify-between items-center mx-auto my-12 bg-gray-200 p-2 rounded'>
+          <Btn handleClick={decrement_page} text="PREVIOUS" />
+          <p className='text-xs font-bold text-gray-600'>OTHER PAGES</p>
+          <Btn handleClick={increment_page} text="NEXT" />
         </div>
       </Layout>
     </>
